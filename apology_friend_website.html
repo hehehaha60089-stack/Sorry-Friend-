@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>I'm Sorry 🌙</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;font-family:Georgia,'Times New Roman',serif;background:linear-gradient(135deg,#101629,#292143,#452b50);color:#fff;display:flex;justify-content:center;align-items:center;padding:22px}
+.card{width:min(650px,100%);border:1px solid #ffffff26;background:#ffffff0c;backdrop-filter:blur(10px);border-radius:25px;padding:clamp(22px,5vw,42px);box-shadow:0 20px 60px #0005;text-align:center}
+.eyebrow{letter-spacing:4px;text-transform:uppercase;color:#d7b6e9;font:12px Arial,sans-serif}
+h1{font-size:clamp(30px,7vw,46px);margin:15px 0;color:#f5d9ff}
+p{font-size:18px;line-height:1.8;color:#eee8f6}
+.heart{font-size:46px;margin:12px}
+button{background:#e6c5f4;color:#24172d;border:0;border-radius:30px;padding:13px 22px;font-size:15px;cursor:pointer;margin:8px;font-weight:bold}
+button:hover{transform:translateY(-2px)}
+.secondary{background:#ffffff16;color:white;border:1px solid #ffffff30}
+.slide{display:none;animation:fade .45s ease}.slide.active{display:block}
+.dots{color:#bca4cc;letter-spacing:5px;margin-top:20px}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.note{font:13px Arial,sans-serif;color:#c9bdd7;margin-top:24px}
+</style>
+</head>
+<body>
+<main class="card">
+  <section class="slide active">
+    <div class="eyebrow">a little message for you</div>
+    <div class="heart">🌙</div>
+    <h1>I'm sorry.</h1>
+    <p>I made this little page because I didn't want my apology to be just another quick message.</p>
+    <button onclick="next()">Open it ✨</button>
+  </section>
+
+  <section class="slide">
+    <div class="eyebrow">what happened</div>
+    <h1>I got jealous…</h1>
+    <p>When I revived the other teammate and then saw you with someone else, I let my jealousy get the better of me. Instead of talking calmly, I went off to play solo and said, “Tum dono bond strong karo and bye.”</p>
+    <button onclick="next()">Next →</button>
+  </section>
+
+  <section class="slide">
+    <div class="eyebrow">what I should have done</div>
+    <h1>Handled it better.</h1>
+    <p>I could have simply told you how I was feeling instead of making that comment and leaving. I understand that my words may have hurt you, and I'm genuinely sorry.</p>
+    <button onclick="next()">Read more →</button>
+  </section>
+
+  <section class="slide">
+    <div class="eyebrow">no excuses</div>
+    <h1>You didn't deserve that.</h1>
+    <p>You are free to play with anyone, and I shouldn't make you feel guilty for it. My jealousy was my feeling to handle—not something I should put on you.</p>
+    <button onclick="next()">One last thing →</button>
+  </section>
+
+  <section class="slide">
+    <div class="eyebrow">from me to you</div>
+    <div class="heart">💜</div>
+    <h1>I value our friendship.</h1>
+    <p>I miss the good moments we share in-game. I'm not asking you to forgive me instantly or pretend you're not upset. I just hope, when you're ready, we can talk and play again without this awkwardness.</p>
+    <p><b>I'm sorry for hurting you. Truly.</b></p>
+    <button onclick="next()">A tiny final note ✨</button>
+  </section>
+
+  <section class="slide">
+    <div class="eyebrow">the end… hopefully a new start</div>
+    <h1>Friends? 🌷</h1>
+    <p>Whenever you're ready, I'd be glad to make things right. No pressure, no rush. Your friendship means a lot to me.</p>
+    <button onclick="restart()">Read again ↺</button>
+  </section>
+  <div class="dots" id="dots">● ○ ○ ○ ○ ○</div>
+  <div class="note">Made with sincerity, not excuses.</div>
+</main>
+<script>
+let current=0;
+const slides=document.querySelectorAll('.slide');
+function show(){slides.forEach((s,i)=>s.classList.toggle('active',i===current));document.getElementById('dots').textContent=slides.map((_,i)=>i===current?'●':'○').join(' ');}
+function next(){if(current<slides.length-1){current++;show();}}
+function restart(){current=0;show();}
+</script>
+</body>
+</html>
